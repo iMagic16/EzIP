@@ -38,11 +38,6 @@
             // 
             this.lstBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.lstBox.FormattingEnabled = true;
-            this.lstBox.Items.AddRange(new object[] {
-            "The IPs of all of your adapters",
-            "Click on one to copy to clipboard",
-            "---------------------------------------------------------------------------------" +
-                "--"});
             this.lstBox.Location = new System.Drawing.Point(0, 0);
             this.lstBox.Name = "lstBox";
             this.lstBox.Size = new System.Drawing.Size(256, 238);
