@@ -40,7 +40,7 @@
             this.lstBox.FormattingEnabled = true;
             this.lstBox.Location = new System.Drawing.Point(0, 0);
             this.lstBox.Name = "lstBox";
-            this.lstBox.Size = new System.Drawing.Size(256, 238);
+            this.lstBox.Size = new System.Drawing.Size(232, 238);
             this.lstBox.TabIndex = 0;
             this.lstBox.SelectedIndexChanged += new System.EventHandler(this.lstBox_SelectedIndexChanged);
             // 
@@ -52,7 +52,7 @@
             this.toolLbl});
             this.toolStrip1.Location = new System.Drawing.Point(0, 238);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(256, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(232, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -65,7 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(256, 263);
+            this.ClientSize = new System.Drawing.Size(232, 263);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.lstBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

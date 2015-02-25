@@ -64,8 +64,15 @@ namespace EzIP
 
         private void lstBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Clipboard.SetText(Convert.ToString(lstBox.SelectedItem));
-            toolLbl.Text = ("Copied " + lstBox.SelectedItem + " to clipboard");
+            try
+            {
+                Clipboard.SetText(Convert.ToString(lstBox.SelectedItem));
+                toolLbl.Text = ("Copied " + lstBox.SelectedItem + " to clipboard");
+            }
+            catch (Exception ex)
+            {
+                toolLbl.Text = ex.Message;
+            }
         }
     }
 }
