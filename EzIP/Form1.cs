@@ -13,6 +13,8 @@ namespace EzIP
 {
     public partial class Form1 : Form
     {
+        public static string line = "-----------------------------------------------------------------------------------";
+
         public Form1()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace EzIP
         {
             lstBox.Items.Add("The IPs of all of your adapters");
             lstBox.Items.Add("Click on one to copy to clipboard");
-            lstBox.Items.Add("-----------------------------------------------------------------------------------");
+            lstBox.Items.Add(line);
 
             runIPGrab();
         }
@@ -37,7 +39,7 @@ namespace EzIP
             try
             {
                 lstBox.Items.Add("Hostname: " + Dns.GetHostName());
-                lstBox.Items.Add("-----------------------------------------------------------------------------------");
+                lstBox.Items.Add(line);
 
                 string ip;
                 IPHostEntry host = default(IPHostEntry);
@@ -50,7 +52,7 @@ namespace EzIP
                     {
                         ip = Convert.ToString(IP);
                         lstBox.Items.Add(ip);
-                        lstBox.Items.Add("-----------------------------------------------------------------------------------");
+                        lstBox.Items.Add(line);
                     }
                 }
 
@@ -66,8 +68,10 @@ namespace EzIP
         {
             try
             {
+                if (!(lstBox.SelectedItem as string == line)){
                 Clipboard.SetText(Convert.ToString(lstBox.SelectedItem));
                 toolLbl.Text = ("Copied " + lstBox.SelectedItem + " to clipboard");
+                }
             }
             catch (Exception ex)
             {
