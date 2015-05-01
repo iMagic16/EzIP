@@ -33,36 +33,37 @@ namespace EzIP
 
             runIPGrab();
         }
-        private void runIPGrab()
-        {
-
-            try
+            private void runIPGrab()
             {
-                lstBox.Items.Add("Hostname: " + Dns.GetHostName());
-                lstBox.Items.Add(line);
 
-                string ip;
-                IPHostEntry host = default(IPHostEntry);
-                string hostname;
-                hostname = System.Environment.MachineName;
-                host = Dns.GetHostEntry(hostname);
-                foreach (IPAddress IP in host.AddressList)
+                try
                 {
-                    if (IP.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
-                    {
-                        ip = Convert.ToString(IP);
-                        lstBox.Items.Add(ip);
-                        lstBox.Items.Add(line);
-                    }
-                }
+                    //Add the computers name to the listbox
+                    lstBox.Items.Add("Hostname: " + Dns.GetHostName());
+                    lstBox.Items.Add(line);
 
+                    string ip;
+                    IPHostEntry host = default(IPHostEntry); //host ip adapters
+                    string hostname;
+                    hostname = System.Environment.MachineName; //host's computer
+                    host = Dns.GetHostEntry(hostname); //checking the dns entries on the computer
+                    foreach (IPAddress IP in host.AddressList) //for every ip adapter in host computer...
+                    {
+                        if (IP.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork) //if the ip = ipv4
+                        {
+                            ip = Convert.ToString(IP); //store in a string
+                            lstBox.Items.Add(ip); //output to listbox
+                            lstBox.Items.Add(line);
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                throw;
-            }
-        }
 
         private void lstBox_SelectedIndexChanged(object sender, EventArgs e)
         {
